@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_own_post, only: [:destroy, :edit, :update]
 
   def index
-    @posts = Post.all
+    @posts = Post.all.includes(:user).page(params[:page]).per(5)
     @domain = request.base_url
   end
 
