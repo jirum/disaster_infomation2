@@ -1,0 +1,13 @@
+<h1>Edit Category</h1>
+<%= form_for @category, url: admin_category_path(@category), method: :patch do |f| %>
+  <% if @category.errors.any? %>
+    <ul>
+      <% @category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
