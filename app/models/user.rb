@@ -6,4 +6,12 @@ class User < ApplicationRecord
 
   has_many :posts
   has_many :comments
+
+  def client?
+    role == 'client'
+  end
+
+  def admin?
+    role == 'admin'
+  end
 end
