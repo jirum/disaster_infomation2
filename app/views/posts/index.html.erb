@@ -16,6 +16,10 @@
     <td><%= post.content %></td>
     <td><%= post.address %></td>
     <td><%= link_to "Edit" ,edit_post_path(post) if post.user == current_user %></td>
+    <td><%= form_for post, url: post_path(post), method: :delete do |f| %>
+          <%= f.submit 'Delete', class:'btn btn-danger'if post.user == current_user %>
+        <% end %>
+    </td>
   </tr>
   <% end %>
   </tbody>
