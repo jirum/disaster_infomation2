@@ -13,6 +13,8 @@
   <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  <br>
+  <%= link_to 'Admin Disaster Type', admin_categories_path if current_user&.admin? %>
     <%= yield %>
   </body>
 </html>
