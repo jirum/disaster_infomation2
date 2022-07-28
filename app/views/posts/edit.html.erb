@@ -13,6 +13,9 @@
   <%= f.label :category %>
   <%= f.select :category_id,Category.all.map{|c| [c.name, c.id]}%>
 
+  <%= f.label :image %>
+  <%= f.file_field :image, class: 'form-control' %>
+
   <%= f.submit %>
 <% end %>
 

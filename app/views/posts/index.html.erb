@@ -8,6 +8,7 @@
     <th scope="col">Address</th>
     <th scope="col">Created by</th>
     <th scope="col">Type of Disaster</th>
+    <th scope="col">Image</th>
     <th scope="col">Action</th>
   </tr>
   </thead>
@@ -20,6 +21,7 @@
     <td><%= post.address %></td>
     <td><%= post.user.email %></td>
     <td><%= post.category.name %></td>
+    <td><%= image_tag "#{@domain}/#{post.image.url}" if post.image? %></td>
     <td><%= link_to :comments, post_comments_path(post) %></td>
     <td><%= link_to "Edit" ,edit_post_path(post) if post.user == current_user %></td>
     <td><%= form_for post, url: post_path(post), method: :delete do |f| %>
