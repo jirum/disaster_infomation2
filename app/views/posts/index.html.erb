@@ -6,6 +6,7 @@
     <th scope="col">Title</th>
     <th scope="col">Content</th>
     <th scope="col">Address</th>
+    <th scope="col">Region</th>
     <th scope="col">Created by</th>
     <th scope="col">Type of Disaster</th>
     <th scope="col">Short Url</th>
@@ -20,6 +21,7 @@
     <td><%= post.title %></td>
     <td><%= post.content %></td>
     <td><%= post.address %></td>
+    <td><%= post.region.name %></td>
     <td><%= post.user.email %></td>
     <td><%= post.category.name %></td>
     <td><%= link_to "#{@domain}/#{post.short_url}", post.short_url %></td>

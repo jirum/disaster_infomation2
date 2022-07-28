@@ -16,6 +16,9 @@
     <%= f.label :address %>
     <%= f.text_field :address, class: 'form-control' %>
 
+    <%= f.label :region %>
+    <%= f.select :region_id, Region.all.map{|c| [c.name, c.id]}%>
+
     <%= f.label :category %>
     <%= f.select :category_id, Category.all.map{|c| [c.name, c.id]}%>
 
