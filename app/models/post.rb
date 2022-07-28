@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments
   belongs_to :category
+  belongs_to :region
   before_create :generate_short_url
 
   mount_uploader :image, ImageUploader
