@@ -1,0 +1,10 @@
+<h1>Disaster Type</h1>
+<% @categories.each do |category| %>
+  <ul>
+    <li><%= category.id %></li>
+    <li><%= category.name %></li>
+    <li><%= link_to 'edit', edit_admin_category_path(category) %></li>
+    <li><%= button_to 'destroy', admin_category_path(category), method: :delete %></li>
+  </ul>
+<% end %>
+<%= link_to 'new', new_admin_category_path %>
