@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_28_075647) do
+ActiveRecord::Schema.define(version: 2022_07_28_133149) do
 
   create_table "categories", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2022_07_28_075647) do
     t.integer "category_id"
     t.string "image"
     t.string "short_url"
+    t.integer "comments_count", default: 0
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
