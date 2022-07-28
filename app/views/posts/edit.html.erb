@@ -1,0 +1,16 @@
+<h1>Edit Description Id: <%= @post.id %></h1>
+
+<%= form_for @post, url: post_path(@post), method: :patch do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %>
+  <%= f.text_field :content, class: 'form-control' %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address, class: 'form-control' %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'index', posts_path, class: 'btn btn-secondary' %>
