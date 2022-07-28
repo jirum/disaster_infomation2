@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @domain = request.base_url
   end
 
   def new
@@ -46,6 +47,6 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :address, :category_id)
+    params.require(:post).permit(:title, :content, :address, :category_id, :image)
   end
 end
