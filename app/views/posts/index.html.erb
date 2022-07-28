@@ -15,6 +15,7 @@
     <td><%= post.title %></td>
     <td><%= post.content %></td>
     <td><%= post.address %></td>
+    <td><%= link_to "Edit" ,edit_post_path(post) if post.user == current_user %></td>
   </tr>
   <% end %>
   </tbody>

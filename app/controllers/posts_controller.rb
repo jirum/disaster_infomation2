@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: :index
+  before_action :set_own_post, only: [:destroy, :edit, :update]
 
   def index
     @posts = Post.all
@@ -19,7 +20,26 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @post.update(post_params)
+      redirect_to posts_path
+    else
+      render :edit
+    end
+  end
+
   private
+
+  def set_own_post
+    @post = current_user.posts.find(params[:id])
+    if @post.nil?
+      flash[:alert] = 'This post is not belongs to you or not exists'
+      redirect_to posts_path
+    end
+  end
+
   def post_params
     params.require(:post).permit(:title, :content, :address)
   end
