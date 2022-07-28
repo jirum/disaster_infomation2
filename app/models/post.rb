@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   validates_presence_of :address
   validates_presence_of :category
   validates_presence_of :image
+  validates_presence_of :region
 
   belongs_to :user
   has_many :comments
