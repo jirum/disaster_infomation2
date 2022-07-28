@@ -32,6 +32,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    if @comment.destroy
+      redirect_to post_comments_path(@post)
+    end
+  end
+
   private
 
   def set_own_comment
