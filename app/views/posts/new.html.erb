@@ -8,13 +8,13 @@
 
   <%= form_for @post, url: posts_path, method: :post do |f| %>
     <%= f.label :title %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: 'form-control' %>
 
     <%= f.label :content %>
-    <%= f.text_field :content %>
+    <%= f.text_field :content, class: 'form-control' %>
 
     <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_field :address, class: 'form-control' %>
 
     <%= f.label :category %>
     <%= f.select :category_id, Category.all.map{|c| [c.name, c.id]}%>
@@ -22,6 +22,5 @@
     <%= f.label :image %>
     <%= f.file_field :image, class: 'form-control' %>
 
-    <%= f.submit %>
-
+    <%= f.submit class: 'btn btn-primary'%>
 <% end %>
