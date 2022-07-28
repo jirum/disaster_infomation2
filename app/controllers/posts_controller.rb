@@ -42,8 +42,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    redirect_to posts_path
+    if @post.comments.present?
+      flash[:notice] = "You cannot delete this"
+    else
+      @post.destroy
+      redirect_to posts_path
+    end
   end
 
   private
