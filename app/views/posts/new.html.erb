@@ -16,6 +16,9 @@
     <%= f.label :address %>
     <%= f.text_field :address %>
 
+    <%= f.label :category %>
+    <%= f.select :category_id,Category.all.map{|c| [c.name, c.id]}%>
+
     <%= f.submit %>
 
 <% end %>
