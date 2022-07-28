@@ -7,6 +7,16 @@ class PostsController < ApplicationController
     @domain = request.base_url
   end
 
+  def redirect
+    @short_ext = params[:short_url]
+    @post = Post.find_by(short_url: @short_ext)
+    redirect_to post_path(@post)
+  end
+
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def new
     @post= Post.new
   end
