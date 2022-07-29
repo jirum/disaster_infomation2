@@ -1,0 +1,36 @@
+<h1>My Post Lists</h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="col">Content</th>
+    <th scope="col">Address</th>
+    <th scope="col">Region</th>
+    <th scope="col">Created by</th>
+    <th scope="col">Type of Disaster</th>
+    <th scope="col">Short Url</th>
+    <th scope="col">Image</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+   <% current_user.posts.each do |post| %>
+    <tr>
+    <td><%= post.title %></td>
+    <td><%= post.content %></td>
+    <td><%= post.address %></td>
+    <td><%= post.region.name %></td>
+    <td><%= post.user.email %></td>
+    <td><%= post.category.name %></td>
+    <td><%= link_to "https:/localhost:3000/#{post.short_url}", post.short_url %></td>
+    <td><%= image_tag "#{post.image.url}" if post.image? %></td>
+    <td><%= link_to :comments, post_comments_path(post) %></td>
+    <td><%= link_to "Edit" ,edit_post_path(post), class:'btn btn-primary' if post.user == current_user %></td>
+    <td><%= form_for post, url: post_path(post), method: :delete do |f| %>
+         <%= f.submit 'Delete', class:'btn btn-danger'if post.user == current_user %>
+        <% end %>
+      </td>
+    <% end %>
+  </tr>
+  </tbody>
+</table>
