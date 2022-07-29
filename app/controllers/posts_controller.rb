@@ -50,6 +50,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def current_user_post
+    @posts = current_user.posts.includes(:posts, :comments)
+  end
+
   private
 
   def set_own_post
